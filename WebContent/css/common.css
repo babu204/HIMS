@@ -1,0 +1,123 @@
+input.ui-button {
+    padding: 0.2em 0.5em;
+}
+
+.errorMessage {
+    /*color: #ff0000;*/
+    font-weight: bold;
+}
+body {
+    font: 11px "Arial";
+    margin: 0;
+    padding: 0;
+}
+
+.disableComponent {
+    color: gray;
+}
+
+.inputText {
+    font-family: Arial;
+    font-size: 10pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    color: #000000;
+    border-left: 1pt solid #0000ff;
+    border-right: 1pt solid #0000ff;
+    border-top: 1pt solid #0000ff;
+    border-bottom: 1pt solid #0000ff;
+}
+
+.inputNumber {
+    font-family: arial;
+    font-size: 10pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-align: right;
+    color: #000000;
+    border-left: 1pt solid #0000ff;
+    border-right: 1pt solid #0000ff;
+    border-top: 1pt solid #0000ff;
+    border-bottom: 1pt solid #0000ff;
+    color: #000000;
+}
+
+.inputTextDisable {
+    font-family: arial;
+    font-size: 10pt;
+    font-style: bold;
+    line-height: normal;
+    font-weight: normal;
+    color: #000000;
+    background-color: #bdbebd;
+    border-left: 1pt solid #0000ff;
+    border-right: 1pt solid #0000ff;
+    border-top: 1pt solid #0000ff;
+    border-bottom: 1pt solid #0000ff;
+}
+
+.inputNumberDisable {
+    font-family: arial;
+    font-size: 10pt;
+    font-style: bold;
+    line-height: normal;
+    font-weight: normal;
+    text-align: right;
+    color: #000000;
+    background-color: #bdbebd;
+    border-left: 1pt solid #0000ff;
+    border-right: 1pt solid #0000ff;
+    border-top: 1pt solid #0000ff;
+    border-bottom: 1pt solid #0000ff;
+}
+
+.handCursor {
+    cursor: pointer;
+}
+
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+.exDesc {
+    color: red;
+}
+
+.fullCalendar {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.tr_mouseover {
+    background-color: #ccccff;
+}
+
+.trPink {
+    background-color: #cccccc;
+}
+
+.v-readonly {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    font-family: "Arial";
+    font-size: 11px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+}
+
+div#dash1 {
+    padding: 10px 15px 10px 15px;
+    margin: 10px 15px 10px 15px;
+    background: #eaf3fd;
+    border: 1px solid #c6dff9
+}

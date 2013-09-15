@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.action">
+	</context:component-scan>
+
+
+	<import resource="applicationContextDataSourceTransaction.xml" />
+	<import resource="applicationContextProperties.xml" />
+
+	<import resource="applicationContextFramework.xml" />
+	<import resource="applicationContextExternal.xml" />
+ 
+    <!--<import resource="ubsContext.xml" />-->
+	<!--<import resource="test.xml" />-->
+
+	<!-- modules -->
+	<!--
+	<import resource="moduleExamContext.xml" />
+	<import resource="moduleMasterContext.xml" />
+	<import resource="moduleUserContext.xml" />	
+	-->
+
+	<bean id="appDetailsBaseAdvice"
+		class="com.theone.framework.spring.aop.DefaultAppDetailsBaseAdvice" />
+
+	<!-- USED FOR LOGGING AT MANAGER LEVEL (START) -->
+  	<bean id="exceptionLoggingBundle" class="com.theone.framework.exception.ExceptionLoggingBundle">
+		<!-- <property name="serverConfiguration" ref="serverConfiguration" /> -->
+		<property name="exceptionsNotToLog">
+			<list>
+				<value>com.theone.framework.exception.ValidatorException</value>
+				<value>com.theone.framework.exception.InvalidCredentialsException</value>
+			</list>
+		</property>
+	</bean> 
+
+	<!-- <bean id="exceptionLoggingAroundAdvice"
+		class="com.theone.framework.spring.aop.ExceptionLoggingAroundAdvice">
+		<property name="exceptionLoggingBundle" ref="exceptionLoggingBundle" />
+	</bean> -->
+	<!-- USED FOR LOGGING AT MANAGER LEVEL (END) -->
+</beans>

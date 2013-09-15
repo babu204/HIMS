@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<bean id="dataSourceUbs" class="com.theone.framework.spring.dao.DynamicDataSource" >
+		<property name="jndiName">
+			<value>${ubs.db.jndiName}</value>
+		</property>
+
+        <property name="driverClassName">
+			<value>${ubs.db.connection.driver_class}</value>
+		</property>
+		<property name="url">
+			<value>${ubs.db.connection.url}</value>
+		</property>
+		<property name="username">
+			<value>${ubs.db.connection.username}</value>
+		</property>
+		<property name="password">
+			<value>${ubs.db.connection.password}</value>
+		</property>
+	</bean>
+
+    <bean id="externalJdbcDao"
+		class="com.theone.framework.dao.ExternalJdbcDao">
+		<property name="dataSource">
+			<ref local="dataSourceUbs" />
+		</property>
+	</bean>
+
+    <!--<bean id="ubsSqlDao" class="com.privasiavasia.web.ubs.dao.mysql.UbsSqlDaoImpl">
+        <property name="dataSourceUbs" ref="externalJdbcDao" />
+    </bean>-->
+</beans>

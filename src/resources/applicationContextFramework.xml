@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--
+		This is the default application context xml for theone-Framework.
+		This xml need to include for every Spring Security enable project.
+	-->
+
+	<bean id="systemLocale" class="java.util.Locale">
+		<constructor-arg index="0" value="${default.locale.language}" />
+		<constructor-arg index="1" value="${default.locale.country}" />
+	</bean>
+
+	<!-- =========================== Manager =========================== -->
+	<bean id="i18n" class="com.theone.framework.language.manager.I18nImpl">
+		<property name="systemLocale" ref="systemLocale" />
+		 
+	</bean>
+  
+</beans>

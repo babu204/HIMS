@@ -1,0 +1,64 @@
+label.validateError {
+    /*background:url("unchecked.gif") no-repeat 0px 0px;*/
+    padding-left: 16px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: #B94A48;
+}
+
+ul.validateError {
+    /*background:url("unchecked.gif") no-repeat 0px 0px;*/
+    padding-bottom: 0px;
+    font-weight: bold;
+    color: #B94A48;
+}
+
+label.error {
+    /*background:url("unchecked.gif") no-repeat 0px 0px;*/
+    padding-left: 16px;
+    padding-bottom: 2px;
+    color: #B94A48;
+    display: inline;
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 0px;
+}
+input.error {
+    border-color: #B94A48 !important;
+    color: #B94A48;
+}
+input.valid {
+    border-color: #468847;
+    color: #468847;
+}
+label.checked {
+    /*background: url("checked.gif") no-repeat 0px 0px;*/
+}
+.ui-state-error-validate, .ui-widget-content-validate .ui-state-error-validate {
+    background: url("validate-bg.png") repeat-x scroll 50% 50% #FEF1EC;
+    border: 1px solid #CD0A0A;
+    color: #CD0A0A;
+}
+.ui-red {
+    background-image: url("red-icon.png");
+}
+#validateContainer {
+    border: 1px solid #B94A48;
+    margin: 5px;
+    padding: 5px;
+    display: none;
+}
+#validateContainer label.error {
+    display: inline;
+}
+#validateContainer p {
+    margin: 0;
+    padding: 0;
+}
+#validateContainer ol li {
+    list-style-type: disc;
+    margin-left: -15px;
+    margin-right: 25px;
+    font-size: 11px;
+    list-style-type: none;
+}

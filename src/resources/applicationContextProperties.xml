@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- <bean id="serverConfiguration" class="com.theone.framework.application.ServerConfiguration">
+		<property name="productionMode">
+			<value>${production.mode}</value>
+		</property>
+        <property name="hostedCompanyCode">
+			<value>${hosted.company.code}</value>
+		</property>
+        <property name="hostedCompanyName">
+			<value>${hosted.company.name}</value>
+		</property>
+        <property name="mailTemplateDir">
+			<value>${mail.template.dir}</value>
+		</property>
+        <property name="mailSmtpHostName">
+			<value>${mail.smtpHost.name}</value>
+		</property>
+        <property name="mailSmtpPort">
+			<value>${mail.smtpPort}</value>
+		</property>
+        <property name="mailTransportProtocol">
+			<value>${mail.transport.protocol}</value>
+		</property>
+        <property name="mailAuth">
+			<value>${mail.smtp.auth}</value>
+		</property>
+        <property name="mailMaxRetry">
+			<value>${mail.max.retry}</value>
+		</property>
+        <property name="mailDefaultSender">
+			<value>${mail.default.sender}</value>
+		</property>
+        <property name="mailDefaultReceiver">
+			<value>${mail.default.receiver}</value>
+		</property>
+        <property name="mailUsername">
+			<value>${mail.username}</value>
+		</property>
+        <property name="mailPassword">
+			<value>${mail.password}</value>
+		</property>
+        <property name="mailDebugMode">
+			<value>${mail.debug.mode}</value>
+		</property>
+        <property name="mailRelayMode">
+			<value>${mail.relay.mode}</value>
+		</property>
+        <property name="mailSslMode">
+			<value>${mail.ssl.mode}</value>
+		</property>
+	</bean>
+ -->
+	<!-- change path settings accordingly -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:resources/appConfig.properties</value>
+				<value>classpath:resources/global.properties</value>
+			</list>
+		</property>
+		<!-- Override properties in file with system properties -->
+		<property name="systemPropertiesModeName">
+			<value>SYSTEM_PROPERTIES_MODE_OVERRIDE</value>
+		</property>
+	</bean>
+
+	<!-- put in appropriate path settings -->
+	<!--
+		This configures default properties, which can overridden with the file
+		specified by the location property
+	-->
+	<!--
+		<bean id="hibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location"
+		value="classpath:com/theone/web/resources/hibernate.properties" />
+		</bean>
+	-->
+</beans>

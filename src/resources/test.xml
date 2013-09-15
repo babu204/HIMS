@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- =========================== Manager =========================== -->
+	<bean id="testManager" class="com.test.manager.TestManagerImpl" autowire="byName"/>
+
+	<!-- ===================== Old Hibernate Dao ======================= -->
+	<!--
+		DAO implementations. Note that this extends the base definition
+		hibernateDaoSupport.
+	-->
+
+
+	<!-- ========================= Dao ================================= -->
+	
+	<bean id="remitterMasterDao" class="com.test.dao.hibernate.RemitterMasterDaoImpl">
+		<property name="genericDao" ref="genericDao" />
+	</bean>
+	
+	<bean id="remitterDetailDao" class="com.test.dao.hibernate.RemitterDetailDaoImpl">
+		<property name="genericDao" ref="genericDao" />
+	</bean>
+	
+	<bean id="testBlobDao" class="com.test.dao.hibernate.TestBlobDaoImpl">
+		<property name="genericDao" ref="genericDao" />
+	</bean>
+	
+	<!-- ======================== Sql Dao =========================== -->
+
+</beans>

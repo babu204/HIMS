@@ -1,0 +1,79 @@
+#colleft {
+	width: 100%;
+	margin-top: 10px;
+	float: left;
+	overflow: hidden;
+	/*background: #333; */ /*background: #ffffff; */
+}
+
+#colleft h1 {
+	height: 30px;
+	background-color: #000;
+	color: #eee;
+	padding: 10px 0 0 20px;
+	margin-bottom: 10px;
+}
+
+/*
+#colleft ul {
+	margin-bottom: 20px;
+}
+
+#colleft ul li {
+	border-bottom: 1px solid #666;
+	margin: 0 0 0 5px;
+	padding: 0 0 2px 5px;
+}
+*/
+
+#colleft #hidePanel {
+	height: 24px;
+	padding: 4px 0 0 0px;
+}
+
+#colleft #hidePanel a { /*color: #FFF;*/
+	
+}
+
+#colleft #hidePanel a:hover {
+	color: #999;
+}
+
+#colleft,#showPanel {
+	color: #fff;
+}
+
+#showPanel {
+	position: inherit;
+	z-index: 2;
+	left: 0;
+	float: left;
+	padding-top: 40px;
+	display: none;
+	width: 0px;
+	/*height: 300px;*/
+	cursor: pointer;
+	/*background: #DFEFFC;*/
+}
+
+#showPanel span {
+	display: block;
+	font-size: 24px;
+	height: 300px;
+	margin-top: 20px;
+	padding: 0px 0 0px 0px;
+	width: 17px;
+	/*background: #333;*/
+	/*background: #DFEFFC;*/
+}
+
+#colright {
+	padding-top: 10px;
+	color: #1c1c1c;
+	margin-left: 200px;
+}
+
+#leftmenu,#colleft,#showPanel,#colright {
+	margin: 0;
+	padding: 0;
+}

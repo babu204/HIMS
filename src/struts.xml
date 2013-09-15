@@ -1,0 +1,158 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.convention.action.suffix" value="Controller" />
+	<constant name="struts.convention.action.mapAllMatches" value="true" />
+	<constant name="struts.convention.default.parent.package"
+		value="defaultPackage" />
+	<package name="defaultPackage" abstract="true" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+			<result-type name="json" class="com.googlecode.jsonplugin.JSONResult">
+				<param name="excludeProperties">
+					loginUser,
+					locale,
+					screenPosY,
+					user.password,
+					datagridModel,
+					showSuccessExitButton,
+					successExitButtonLabel,
+					successExitNamespace,
+					successExitAction,
+					showSuccessAddNewButton,
+					successAddNewButtonLabel,
+					successAddNewNamespace,
+					successAddNewAction,
+				</param>
+				<param name="ignoreHierarchy">false</param>
+			</result-type>
+		</result-types>
+		<interceptors>
+			<interceptor name="json"
+				class="com.googlecode.jsonplugin.JSONInterceptor">
+			</interceptor>
+
+			<interceptor name="authorizationInterceptor"
+				class="com.theone.framework.struts2.interceptor.AuthorizationInterceptor" />
+
+
+			<interceptor name="jqueryDatatables"
+				class="com.theone.framework.struts2.jquery.datatables.DatatablesInterceptor" />
+
+			<interceptor name="log"
+				class="com.theone.framework.struts2.interceptor.LoggerInterceptor" />
+
+			<interceptor name="successRedirect"
+				class="com.theone.framework.struts2.interceptor.SuccessRedirectInterceptor" />
+
+			<interceptor name="redirectMessage"
+				class="com.theone.framework.struts2.interceptor.RedirectMessageInterceptor" />
+
+			<!-- override the default stack (add 'log' after 'exception' -->
+			<interceptor-stack name="baseStack">
+				<interceptor-ref name="logger" />
+				<interceptor-ref name="jqueryDatatables" />
+				<interceptor-ref name="successRedirect" />
+				<interceptor-ref name="timer" />
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="log" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="debugging" />
+				<interceptor-ref name="profiling" />
+				<interceptor-ref name="scopedModelDriven" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="redirectMessage" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="authorizationInterceptor" />
+				<interceptor-ref name="baseStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="tokenStack">
+				<interceptor-ref name="token">
+					<param name="includeMethods">save,update,remove</param>
+				</interceptor-ref>
+				<interceptor-ref name="secureStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="unsecureStack">
+				<interceptor-ref name="baseStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="unSecureTokenStack">
+				<interceptor-ref name="token">
+					<param name="includeMethods">save,update,remove</param>
+				</interceptor-ref>
+				<interceptor-ref name="unsecureStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="uploadStack">
+				<interceptor-ref name="fileUpload">
+					<!-- <param name="allowedTypes"> image/png,image/gif,image/jpeg, image/pjpeg 
+						</param> -->
+				</interceptor-ref>
+				<interceptor-ref name="secureStack" />
+			</interceptor-stack>
+
+
+
+
+		</interceptors>
+
+		<default-interceptor-ref name="secureStack" />
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginForm</param>
+				<param name="namespace">/open/login</param>
+			</result>
+			<result name="noAccess">noAccess</result>
+		</global-results>
+
+		<!-- when service layer throw error, it will direct page to 'INPUT' page -->
+		<global-exception-mappings>
+			<exception-mapping result="input" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		<action name="*Link" method="{1}" class="com.action.LinkAction">
+			<result name="welcome" type="tiles">welcome</result>
+			<result name="friends" type="tiles">friends</result>
+			<result name="office" type="tiles">office</result>
+			<result name="loginSuccess" type="tiles">loginSuccess</result>
+			<result name="create" type="tiles">create</result>
+			<result name="createUser" type="tiles">createUser</result>
+			<result name="loginError" type="tiles">loginError</result>
+			
+			
+		</action>
+		<action name="userListingAction" class="com.action.listing.SampleListing">
+			<!-- if error occur -->
+			<result name="input" type="json">userListing</result>
+			<result name="json" type="json">userListing</result>
+		</action>
+	</package>
+
+</struts>
