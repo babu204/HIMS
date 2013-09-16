@@ -5,7 +5,6 @@
 
 </head>
 <body>
-
 	<div title="Tree Menu">
 		<ul id="tt" class="easyui-tree">
 			<li><span>Menu 1</span>
@@ -22,8 +21,6 @@
 				</ul></li>
 			<li><span>MENU 2</span></li>
 		</ul>
-
 	</div>
-
 </body>
 </html>
